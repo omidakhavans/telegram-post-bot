@@ -1,6 +1,10 @@
-# 🚀 Telegram post submission bot
+# Telegram Post Bot
 
 Submit WordPress posts directly via Telegram! This plugin enables authorized Telegram users to create WordPress posts step-by-step through a simple chatbot interface. More information https://omidakhavan.blog/front-end-wordpress-submission-telegram-bot/
+
+Project site and documentation: https://omidakhavans.github.io/Telegram-Post-Bot/
+
+[Download the latest plugin ZIP](https://github.com/omidakhavans/Telegram-Post-Bot/releases/latest/download/telegram-post-bot.zip)
 
 ---
 
@@ -17,7 +21,7 @@ Submit WordPress posts directly via Telegram! This plugin enables authorized Tel
 
 ### 📦 Installation
 
-1. Clone or download the plugin into your `wp-content/plugins/` directory.
+1. Download the [latest plugin ZIP](https://github.com/omidakhavans/Telegram-Post-Bot/releases/latest/download/telegram-post-bot.zip) and install it through WordPress or extract it into your `wp-content/plugins/` directory.
 2. Run `composer install` to load dependencies.
 3. Create a `.env` file in the plugin root:
 
@@ -63,3 +67,10 @@ Once the bot receives `/start` from an authorized user:
 - Composer dependencies:
   - `irazasyed/telegram-bot-sdk`
   - `vlucas/phpdotenv`
+
+### 📚 Documentation and releases
+
+- [Project documentation](https://omidakhavans.github.io/Telegram-Post-Bot/)
+- [GitHub releases](https://github.com/omidakhavans/Telegram-Post-Bot/releases)
+
+Version tags matching `v*` are built by GitHub Actions. Each release includes the stable asset name `telegram-post-bot.zip`.

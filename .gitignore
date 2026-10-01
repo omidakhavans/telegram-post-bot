@@ -1,7 +1,14 @@
 # Environment variables
 .env
+.env.*
+!.env.example
 
 # Dependencies
 /vendor/
-node_modules
-composer.lock
+node_modules/
+.next/
+.source/
+out/
+build/
+dist/
+tsconfig.tsbuildinfo

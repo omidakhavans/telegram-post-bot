@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f6f8; color: #111318; }
+a { text-underline-offset: 3px; }
+.grid-bg { background-image: linear-gradient(rgba(17,19,24,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(17,19,24,.06) 1px, transparent 1px); background-size: 28px 28px; }
+.prose-docs h1 { @apply mb-5 text-3xl font-semibold tracking-tight; }
+.prose-docs h2 { @apply mb-3 mt-10 text-2xl font-semibold tracking-tight; }
+.prose-docs h3 { @apply mb-2 mt-8 text-xl font-semibold; }
+.prose-docs p { @apply my-4 leading-7 text-slate-700; }
+.prose-docs ul { @apply my-4 list-disc space-y-2 pl-6 text-slate-700; }
+.prose-docs ol { @apply my-4 list-decimal space-y-2 pl-6 text-slate-700; }
+.prose-docs code { @apply rounded bg-slate-200 px-1.5 py-0.5 font-mono text-sm; }
+.prose-docs pre { @apply overflow-x-auto rounded-lg bg-[#151820] p-5 text-sm text-slate-100; }
+.prose-docs pre code { @apply bg-transparent p-0; }
+.prose-docs a { @apply text-electric underline; }

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Telegram Post Bot
  * Description: Submit WordPress posts via Telegram.
- * Version: 0.1
+ * Version: 0.1.0
  * Author: Omid
  * Requires PHP: 8.0.2
  */

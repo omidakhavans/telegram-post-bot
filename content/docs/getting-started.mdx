@@ -1,0 +1,42 @@
+---
+title: Getting started
+description: Install, configure, and connect the plugin to Telegram.
+---
+
+# Getting started
+
+## Requirements
+
+- WordPress 5.8 or newer
+- PHP 8.0.2 or newer
+- Composer
+- A Telegram bot token
+
+## Install
+
+Download the latest [`telegram-post-bot.zip`](https://github.com/omidakhavans/Telegram-Post-Bot/releases/latest/download/telegram-post-bot.zip), extract it into `wp-content/plugins/`, and activate it in WordPress. For source development, run:
+
+```bash
+composer install
+```
+
+## Configure environment variables
+
+Create a `.env` file in the plugin directory:
+
+```dotenv
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+TELEGRAM_AUTHORIZED_USERS=12345678,87654321
+```
+
+Do not commit this file. The plugin loads it with `vlucas/phpdotenv`.
+
+## Configure the webhook
+
+Point Telegram to the WordPress REST endpoint:
+
+```text
+https://your-site.example/wp-json/telegram/v1/webhook/
+```
+
+Only configured Telegram user IDs can progress through the flow. Submitted posts are created as drafts.

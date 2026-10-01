@@ -1,0 +1,27 @@
+---
+title: Architecture
+description: The current webhook, authorization, session, and draft-creation path.
+---
+
+# Architecture
+
+The plugin exposes one public REST route for Telegram webhook updates. Authorization happens inside the handler before session state or content creation is processed.
+
+```mermaid
+flowchart LR
+    A[Telegram update] --> B[WordPress REST webhook]
+    B --> C{Authorized user?}
+    C -- No --> D[Unauthorized response]
+    C -- Yes --> E[Read transient session]
+    E --> F[Collect title, tags, category, content]
+    F --> G[Create WordPress draft]
+    G --> H[Send permalink to Telegram]
+```
+
+## Runtime pieces
+
+- `telegram-post-bot.php` registers `telegram/v1/webhook/`.
+- Composer loads the Telegram Bot SDK and dotenv library.
+- `TELEGRAM_AUTHORIZED_USERS` is parsed into numeric user IDs.
+- Session data is stored in a WordPress transient named for the user ID and expires after one hour.
+- `wp_insert_post()` creates a `draft` post after the user sends `publish`.

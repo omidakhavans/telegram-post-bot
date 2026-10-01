@@ -1,0 +1,25 @@
+---
+title: Development
+description: Contribute to the plugin and its static project site.
+---
+
+# Development
+
+## Plugin code
+
+Install PHP dependencies with `composer install`. Keep secrets in `.env`, never in tracked files. The plugin entry point is `telegram-post-bot.php`; its REST callback and session flow are intentionally kept together in this initial version.
+
+## Website and docs
+
+The public site is a static Next.js export. Run it locally with:
+
+```bash
+npm install
+npm run dev
+```
+
+Documentation pages are MDX files under `content/docs/`. The GitHub Pages base path is applied only in GitHub Actions, so local links remain rooted at `/`.
+
+## Release build
+
+The workflow under `.github/workflows/release.yml` installs production Composer dependencies, copies the plugin into a clean staging directory, and creates `telegram-post-bot.zip`. Version tags matching `v*` create a GitHub Release and attach that stable asset name.

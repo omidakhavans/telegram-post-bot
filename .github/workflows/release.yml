@@ -1,0 +1,53 @@
+name: Build and release plugin
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer:v2
+
+      - name: Validate Composer manifest
+        run: composer validate --strict
+
+      - name: Install production dependencies
+        run: composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
+
+      - name: Audit Composer dependencies
+        run: composer audit --no-dev --locked
+
+      - name: Validate PHP syntax
+        run: php -l telegram-post-bot.php
+
+      - name: Build plugin ZIP
+        run: |
+          mkdir -p build/telegram-post-bot dist
+          cp telegram-post-bot.php README.md composer.json composer.lock build/telegram-post-bot/
+          cp -R vendor build/telegram-post-bot/
+          (cd build && zip -qr ../dist/telegram-post-bot.zip telegram-post-bot)
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: telegram-post-bot
+          path: dist/telegram-post-bot.zip
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/telegram-post-bot.zip --title "Telegram Post Bot $GITHUB_REF_NAME" --generate-notes
