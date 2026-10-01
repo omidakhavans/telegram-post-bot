@@ -6,6 +6,8 @@ Project site and documentation: https://omidakhavans.github.io/telegram-post-bot
 
 [Download the latest plugin ZIP](https://github.com/omidakhavans/telegram-post-bot/releases/latest/download/telegram-post-bot.zip)
 
+Further reading: [Front-End WordPress Submission via Telegram Bot](https://omidakhavan.blog/front-end-wordpress-submission-telegram-bot/)
+
 ---
 
 ### 🧩 Features
