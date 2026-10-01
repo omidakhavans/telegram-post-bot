@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-const repository = process.env.GITHUB_REPOSITORY ?? 'omidakhavans/Telegram-Post-Bot';
+const repository = process.env.GITHUB_REPOSITORY ?? 'omidakhavans/telegram-post-bot';
 const [owner, name] = repository.split('/');
 const siteUrl = process.env.GITHUB_ACTIONS === 'true' ? `https://${owner}.github.io/${name}/` : 'http://localhost:3000/';
 

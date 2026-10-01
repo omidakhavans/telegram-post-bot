@@ -1,7 +1,7 @@
 import { createMDX } from 'fumadocs-mdx/next';
 
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
-const repository = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? 'Telegram-Post-Bot';
+const repository = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? 'telegram-post-bot';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
