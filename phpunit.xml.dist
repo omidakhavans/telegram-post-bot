@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<phpunit
+    bootstrap="tests/bootstrap.php"
+    backupGlobals="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    >
+    <php>
+        <env name="TELEGRAM_BOT_TOKEN" value="dummy-test-token"/>
+        <env name="TELEGRAM_AUTHORIZED_USERS" value="12345,999999"/> <!-- Authorized users for tests -->
+    </php>
+    <testsuites>
+        <testsuite name="Telegram Post Bot Test Suite">
+            <directory suffix=".php">tests/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
